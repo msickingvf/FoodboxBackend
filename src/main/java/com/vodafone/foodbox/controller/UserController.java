@@ -41,7 +41,7 @@ public class UserController {
 			this.message = message;
 		}
 	}
-	@PostMapping("/authenticate")
+	@PostMapping("/authenticated")
 	public ResponseEntity<AuthenticationInfo> authenticate(@RequestBody LoginUser userToLogin) throws Exception{
 		LoginUser loginUser = loginUserService.getUserByEmail(userToLogin.getEmail());
 		AuthenticationInfo authenticationInfo = new AuthenticationInfo();
