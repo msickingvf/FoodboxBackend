@@ -1,22 +1,29 @@
 package com.vodafone.foodbox.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vodafone.foodbox.model.Food;
 import com.vodafone.foodbox.model.LoginUser;
+import com.vodafone.foodbox.service.FoodService;
 import com.vodafone.foodbox.service.LoginUserService;
 
 @RestController // @Controller and @ResponseBody
+@CrossOrigin()
 public class UserController {
 	@Autowired 
 	private LoginUserService loginUserService;
-	
+	@Autowired
+	private FoodService foodService;
 	
 	private class AuthenticationInfo{
 		private String email="";
@@ -57,6 +64,11 @@ public class UserController {
 			authenticationInfo.setMessage("Welcome "+userToLogin.getEmail());
 		}
 		return ResponseEntity.ok(authenticationInfo);
+	}
+	
+	@GetMapping("getFoods")
+	public List<Food> getFoods(){
+		return this.foodService.getAllFoods();
 	}
 	
 }

@@ -19,9 +19,10 @@ public class Food {
 	private String description;
 	private String name;
 	private double price;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
 	private Category category;
+    private String pictureUrl;
 	
 	
 	public Integer getId() {
@@ -53,5 +54,17 @@ public class Food {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}	
 }
