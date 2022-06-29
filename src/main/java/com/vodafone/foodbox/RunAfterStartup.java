@@ -70,6 +70,7 @@ public class RunAfterStartup {
 		food.setEnabled(true);
 		food.setCategory(category);
 		food.setPrice(5.5);
+		food.setPictureUrl("https://www.jungborn.de/images/600x600x90/files/847911/image_h/de_DE/ecommerce/847911H.jpg");
 		foodService.insertFood(food);
 		
 		Food food2 = new Food();
@@ -78,15 +79,17 @@ public class RunAfterStartup {
 		food2.setEnabled(true);
 		food2.setCategory(category);
 		food2.setPrice(15.5);
+		food2.setPictureUrl("https://www.grillkameraden.de/wp-content/uploads/2018/02/Haxe-vom-Grill-Bild-juefraphoto-750x450.jpg");
 		foodService.insertFood(food2);
 		
 		Food food3 = new Food();
-		food3.setDescription("Pizza Margharita");
-		food3.setName("Bavarian Menu");
+		food3.setDescription("Pizza with mozarella and tomatoes");
+		food3.setName("Pizza Margharita");
 		food3.setEnabled(true);
 		Category category2 = categoryService.findCategoryByName("Italian");
 		food3.setCategory(category2);
 		food3.setPrice(10.5);
+		food3.setPictureUrl("https://www.kuechengoetter.de/uploads/media/630x630/02/4282-pizza-margherita.webp?v=1-0");
 		foodService.insertFood(food3);
 		
 		Food food4 = new Food();
@@ -94,8 +97,18 @@ public class RunAfterStartup {
 		food4.setName("Pasta Fuego");
 		food4.setEnabled(true);
 		food4.setCategory(category2);
-		food4.setPrice(10.5);
+		food4.setPrice(10.7);
+		food4.setPictureUrl("https://www.eatbetter.de/sites/eatbetter.de/files/styles/700_530/public/2021-07/kuerbis_pasta_1.jpg?h=4521fff0&itok=Bu6nQbht");
 		foodService.insertFood(food4);
+		
+		Food food5 = new Food();
+		food5.setDescription("Apfelpfannkuchen");
+		food5.setName("Apfelpfannekuchen");
+		food5.setEnabled(true);
+		food5.setCategory(category);
+		food5.setPrice(4.5);
+		food5.setPictureUrl("https://www.heimgourmet.com/media/pfannkuchen-201020438663_crop.jpg/rh/eierkuchen.jpg");
+		foodService.insertFood(food5);
 	}
 	
 }

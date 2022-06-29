@@ -1,5 +1,6 @@
 package com.vodafone.foodbox.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vodafone.foodbox.model.Category;
 import com.vodafone.foodbox.model.Food;
+import com.vodafone.foodbox.model.FoodOrder;
 import com.vodafone.foodbox.model.LoginUser;
+import com.vodafone.foodbox.service.CategoryService;
 import com.vodafone.foodbox.service.FoodService;
 import com.vodafone.foodbox.service.LoginUserService;
 
@@ -24,6 +28,8 @@ public class UserController {
 	private LoginUserService loginUserService;
 	@Autowired
 	private FoodService foodService;
+	@Autowired
+	private CategoryService categoryService;
 	
 	private class AuthenticationInfo{
 		private String email="";
@@ -66,9 +72,26 @@ public class UserController {
 		return ResponseEntity.ok(authenticationInfo);
 	}
 	
+	@PostMapping("/orderFood")
+	public ResponseEntity<FoodOrder> orderFood(@RequestBody 
+			//LoginUser userToLogin
+			FoodOrder foodOrder
+			) throws Exception{
+		//LoginUser loginUser = loginUserService.getUserByEmail(userToLogin.getEmail());
+		for (Food food : foodOrder.getFoodItems()) {
+			System.out.println("da: "+food.getId());
+		}
+		return ResponseEntity.ok(foodOrder);
+	}
+	
 	@GetMapping("getFoods")
 	public List<Food> getFoods(){
 		return this.foodService.getAllFoods();
+	}
+	
+	@GetMapping("getCategories")
+	public List<Category> getCategories(){
+		return this.categoryService.getAllCategories();
 	}
 	
 }
