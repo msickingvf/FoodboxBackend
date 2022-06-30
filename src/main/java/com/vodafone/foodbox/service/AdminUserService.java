@@ -16,4 +16,8 @@ public class AdminUserService {
 		adminUserRepository.save(loginUser);
 		
 	}
+	public AdminUser getUserByEmail(String email) {
+		AdminUser adminUser = adminUserRepository.findAdminUserByEmail(email);
+		return adminUser;
+	}
 }

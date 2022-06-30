@@ -26,4 +26,26 @@ public class FoodService {
 		return true;
 	}
 
+	public Food getFoodById(int id) {
+		return this.foodRepository.findFoodById(id);
+	}
+
+	public void setFood(Food food) {
+		Food oldFood = this.foodRepository.findFoodById(food.getId());
+		oldFood.setCategory(food.getCategory());
+		oldFood.setDescription(food.getDescription());
+		oldFood.setEnabled(food.isEnabled());
+		System.out.println("old name: "+oldFood.getName()+" new name: "+food.getName());
+		oldFood.setName(food.getName());
+		oldFood.setPictureUrl(food.getPictureUrl());
+		oldFood.setPrice(food.getPrice());
+		this.foodRepository.save(oldFood);
+	}
+
+	public boolean deleteFood(int id) {
+		Food food = this.foodRepository.findFoodById(id);
+		this.foodRepository.delete(food);
+		return true;
+	}
+
 }

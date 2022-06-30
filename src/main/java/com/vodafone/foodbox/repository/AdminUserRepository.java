@@ -6,4 +6,6 @@ import com.vodafone.foodbox.model.AdminUser;
 
 public interface AdminUserRepository extends CrudRepository<AdminUser, Integer>{
 
+	AdminUser findAdminUserByEmail(String email);
+
 }

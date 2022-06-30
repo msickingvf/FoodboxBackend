@@ -1,18 +1,20 @@
 package com.vodafone.foodbox.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
-@Entity
 public class FoodOrder {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;	
-	private ArrayList<Food> foodItems;
+	private Set<Food> foodItems = new HashSet<>();
 	private String email;
 	private String name;
 	private String street;
@@ -20,17 +22,13 @@ public class FoodOrder {
 	private String creditCardNumber;
 	private String creditCardMMYY;
 	private String creditCardSecCode;
+	private double totalPrice;
 	private boolean ordered=false;
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public ArrayList<Food> getFoodItems() {
+
+	public Set<Food> getFoodItems() {
 		return foodItems;
 	}
-	public void setFoodItems(ArrayList<Food> foodItems) {
+	public void setFoodItems(Set<Food> foodItems) {
 		this.foodItems = foodItems;
 	}
 	public String getEmail() {
@@ -80,6 +78,12 @@ public class FoodOrder {
 	}
 	public void setOrdered(boolean ordered) {
 		this.ordered = ordered;
+	}
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 	
 }

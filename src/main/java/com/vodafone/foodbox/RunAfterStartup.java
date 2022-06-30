@@ -39,7 +39,7 @@ public class RunAfterStartup {
 		System.out.println("ADDING ADMINUSER");
 		AdminUser adminUser = new AdminUser();
 		adminUser.setEmail("admin@foodbox.com");
-		adminUser.setPassword("adminsPassword");
+		adminUser.setPassword("password");
 		adminUserSerivce.addUser(adminUser);
 	}
 	

@@ -5,4 +5,6 @@ import com.vodafone.foodbox.model.Food;
 
 public interface FoodRepository extends CrudRepository<Food, Integer>{
 
+	Food findFoodById(int id);
+
 }

@@ -1,12 +1,17 @@
 package com.vodafone.foodbox.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -23,7 +28,8 @@ public class Food {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
 	private Category category;
     private String pictureUrl;
-	
+    //@ManyToMany(mappedBy = "foodItems", fetch = FetchType.LAZY)
+    //private Set<FoodOrder> foodOrders = new HashSet<>();
 	
 	public Integer getId() {
 		return id;
