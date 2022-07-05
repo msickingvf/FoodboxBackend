@@ -50,14 +50,12 @@ public class LoginTest {
 	  @Test(priority=2)
 	  public void testOrderButton() throws InterruptedException {
 		  //scroll down
-		  JavascriptExecutor js = (JavascriptExecutor) driver;
-		  js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		  WebElement web = driver.findElement(By.id("orderButton"));
 		  System.out.println("Orderbutton: "+web.getText());
 		  web.click();
 		  Thread.sleep(1000);
-		  //String text = driver.findElement(By.id("orderButton")).getText();
-		  //Assert.assertEquals(text, "Food Ordered");
+		  String text = driver.findElement(By.id("orderButton")).getText();
+		  Assert.assertEquals(text, "Food Ordered");
 
 	  }
 	  

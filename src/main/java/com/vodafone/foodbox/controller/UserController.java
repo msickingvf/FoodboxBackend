@@ -166,7 +166,8 @@ public class UserController {
 		System.out.println("Sending mail Subject: \""+mailSubject+"\"");
 		MimeMessage msg = emailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(msg, true);
-		helper.setTo("order@foodbox.com");
+		helper.setTo("foodbox@sicking-net.de");
+		helper.setFrom("foodbox@sicking-net.de");		
 		helper.setSubject(mailSubject);
 		helper.setText(mailText,true);
 		emailSender.send(msg);
